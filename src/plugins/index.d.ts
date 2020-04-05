@@ -1,17 +1,18 @@
-import Vue, { VueConstructor } from "vue";
-import { AxiosInstance } from "axios";
+import Vue, {VueConstructor} from "vue";
+import {AxiosInstance} from "axios";
 
 declare global {
-  interface Window {
-    axios: AxiosInstance;
-  }
+    interface Window {
+        axios: AxiosInstance;
+    }
 }
 
 declare module "vue/types/vue" {
-  interface Vue {
-    $axios: AxiosInstance;
-  }
-  interface VueConstructor {
-    $axios: AxiosInstance;
-  }
+    interface Vue {
+        $axios: AxiosInstance;
+    }
+
+    interface VueConstructor {
+        $axios: AxiosInstance;
+    }
 }
