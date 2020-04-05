@@ -1,7 +1,7 @@
 <template>
     <div id="admin">
         <el-container class="content">
-            <navigation :state="navigationCollapse" class="navigation"/>
+            <navigation :state="isCollapse" class="navigation"/>
             <el-container>
                 <el-header>
                     <header/>
@@ -29,7 +29,7 @@
         }
     })
     export default class Admin extends Vue {
-        navigationCollapse = false
+        isCollapse = false
     }
 </script>
 
