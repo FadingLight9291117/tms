@@ -4,7 +4,7 @@
             <navigation :state="isCollapse" class="navigation"/>
             <el-container>
                 <el-header>
-                    <header/>
+                    <head-site :state.sync="isCollapse"/>
                 </el-header>
                 <el-main>
                     <router-view/>
@@ -18,14 +18,13 @@
     import Vue from "vue";
     import Component from "vue-class-component";
     import Navigation from "@/components/Navigation.vue";
-    import Header from "@/components/Header.vue";
-    import Footer from "@/components/Footer.vue"
+    import HeadSite from "@/components/HeadSite.vue";
+
 
     @Component({
         components: {
             Navigation,
-            Header,
-            Footer
+            HeadSite
         }
     })
     export default class Admin extends Vue {
@@ -48,4 +47,7 @@
         background: #f0f2f5;
     }
 
+    .el-header {
+        box-shadow: 0 0 6px rgba(0, 0, 0, .04)
+    }
 </style>

@@ -5,9 +5,9 @@
             @close="handleClose"
             @select="handleSelect"
             :collapse="this.state"
-            background-color="rgb(48, 65, 86)"
-            text-color="rgb(191, 203, 217)"
-            active-text-color="rgb(64, 158, 255)"
+            background-color="#545c64"
+            text-color="#ffffff"
+            active-text-color="#ffd04b"
     >
         <el-submenu index="1">
             <template slot="title">
