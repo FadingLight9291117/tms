@@ -1,13 +1,9 @@
-<template>
-    
-</template>
+<template> </template>
 
 <script>
-    export default {
-        name: "UserInfo.vue"
-    }
+export default {
+  name: "UserInfo.vue"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

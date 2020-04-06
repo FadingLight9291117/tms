@@ -1,10 +1,30 @@
 import Vue from "vue";
 import {
-    Button, Menu, Submenu, MenuItem, MenuItemGroup,
-    Form, FormItem, Input, RadioGroup, RadioButton,
-    Container, Aside, Header, Footer, Main, Select,
-    Option, Loading, Alert, Breadcrumb, BreadcrumbItem,
-    DropdownMenu, DropdownItem, Dropdown, Avatar
+  Button,
+  Menu,
+  Submenu,
+  MenuItem,
+  MenuItemGroup,
+  Form,
+  FormItem,
+  Input,
+  RadioGroup,
+  RadioButton,
+  Container,
+  Aside,
+  Header,
+  Footer,
+  Main,
+  Select,
+  Option,
+  Loading,
+  Alert,
+  Breadcrumb,
+  BreadcrumbItem,
+  DropdownMenu,
+  DropdownItem,
+  Dropdown,
+  Avatar
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
@@ -32,4 +52,4 @@ Vue.use(Container);
 Vue.use(Footer);
 Vue.use(Header);
 Vue.use(Main);
-Vue.use(Aside)
+Vue.use(Aside);
