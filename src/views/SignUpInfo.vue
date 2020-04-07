@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div id="signUpInfo" style="height: 100%">
+
+    </div>
 </template>
 
 <script lang="ts">
@@ -7,8 +9,10 @@
     import Component from "vue-class-component";
 
     @Component
-    export default class UserInfo extends Vue {
-    };
+    export default class SignUpInfo extends Vue{
+    }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
