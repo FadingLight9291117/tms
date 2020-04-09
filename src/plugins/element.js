@@ -1,33 +1,37 @@
 import Vue from "vue";
 import {
-  Button,
-  Menu,
-  Submenu,
-  MenuItem,
-  MenuItemGroup,
-  Form,
-  FormItem,
-  Input,
-  RadioGroup,
-  RadioButton,
-  Container,
-  Aside,
-  Header,
-  Footer,
-  Main,
-  Select,
-  Option,
-  Loading,
-  Alert,
-  Breadcrumb,
-  BreadcrumbItem,
-  DropdownMenu,
-  DropdownItem,
-  Dropdown,
-  Avatar
+    Button,
+    Menu,
+    Submenu,
+    MenuItem,
+    MenuItemGroup,
+    Form,
+    FormItem,
+    Input,
+    RadioGroup,
+    RadioButton,
+    Container,
+    Aside,
+    Header,
+    Footer,
+    Main,
+    Select,
+    Option,
+    Loading,
+    Alert,
+    Breadcrumb,
+    BreadcrumbItem,
+    DropdownMenu,
+    DropdownItem,
+    Dropdown,
+    Avatar,
+    Table,
+    TableColumn
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+Vue.use(TableColumn);
+Vue.use(Table);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 Vue.use(Dropdown);

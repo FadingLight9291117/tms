@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link :to="{ name: 'signUpInfo' }">to</router-link>
+        <router-link :to="{ name: 'studentSignUp' }">to</router-link>
     </div>
 </template>
 <script lang="ts">

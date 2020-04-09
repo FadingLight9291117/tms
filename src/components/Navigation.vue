@@ -7,7 +7,7 @@
             text-color="#ffffff"
             active-text-color="#ffd04b"
     >
-        <el-menu-item index="1">
+        <el-menu-item index="admin">
             <i class="el-icon-s-home"></i>
             <span slot="title">首页</span>
         </el-menu-item>
@@ -16,8 +16,8 @@
                 <i class="el-icon-s-order"></i>
                 <span slot="title">报名信息</span>
             </template>
-            <el-menu-item index="2-1">学员报名</el-menu-item>
-            <el-menu-item index="2-2">教练报名</el-menu-item>
+            <el-menu-item index="studentSignUp">学员报名</el-menu-item>
+            <el-menu-item index="coachSignUp">教练报名</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
             <template slot="title">
@@ -62,7 +62,7 @@
     @Component
     export default class Navigation extends NavigationProps {
         handleSelect(key: string, keyPath: Array<string>): void {
-            console.log(`key: ${key}, keyPath: ${keyPath}`);
+            this.$router.push({name: key});
         }
     }
 </script>
