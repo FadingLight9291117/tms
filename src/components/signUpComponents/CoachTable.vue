@@ -94,7 +94,7 @@
 
         handleDelete(index: number, row: any) {
             this.$axios
-                .delete(`/coach/rmCoach/${row.id}`)
+                .delete(`/coach/rm/${row.id}`)
                 .then(resp => {
                     if (resp.data === 1) {
                         alert("删除成功");
