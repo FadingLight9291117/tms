@@ -6,6 +6,7 @@
     import echarts from "echarts"
     import Vue from "vue";
     import Component from "vue-class-component";
+    import {Route} from "vue-router";
 
     @Component
     export default class SexChart extends Vue {
@@ -29,6 +30,8 @@
                 data: [5, 20, 36, 10, 10, 20]
             }]
         };
+
+
 
         mounted() {
             // 基于准备好的dom，初始化echarts实例

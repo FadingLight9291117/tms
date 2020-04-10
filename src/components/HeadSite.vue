@@ -58,6 +58,9 @@
 
         // 退出登录
         logout() {
+            this.$cookies.remove("type");
+            this.$cookies.remove("account");
+            this.$cookies.remove("password");
             this.$router.replace("/login");
             Message({type: "success", message: "您已退出登录！"});
         }

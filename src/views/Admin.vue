@@ -19,6 +19,8 @@
     import Component from "vue-class-component";
     import Navigation from "@/components/Navigation.vue";
     import HeadSite from "@/components/HeadSite.vue";
+    import {Route} from "vue-router";
+    // 用户认证
 
     @Component({
         components: {

@@ -1,14 +1,24 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import VueRouter, {Route} from "vue-router";
 import Login from "@/views/Login.vue";
 import Admin from "@/views/Admin.vue";
 import Error from "@/views/Error.vue";
 import StudentSignUp from "@/views/adminViews/StudentSignUp.vue";
 import Home from "@/views/Home.vue";
-import Test from "@/views/Test.vue"
-import CoachSignUp from "@/views/adminViews/CoachSignUp.vue"
+import CoachSignUp from "@/views/adminViews/CoachSignUp.vue";
 
 Vue.use(VueRouter);
+
+const userAuthenticated = () => {
+    const data = {
+        type: Vue.$cookies.get("type"),
+        phone: Vue.$cookies.get("account"),
+        password: Vue.$cookies.get("password")
+    };
+
+    return !(data.type == null || data.phone == null || data.password == null);
+
+};
 
 const routes = [
     {
@@ -24,6 +34,13 @@ const routes = [
         path: "/admin",
         name: "admin",
         component: Admin,
+        beforeEnter(to: Route, from: Route, next: any) {
+            if (userAuthenticated()) {
+                next();
+            } else {
+                next("/login");
+            }
+        },
         children: [
             {
                 path: "studentSignUp",

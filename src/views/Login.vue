@@ -114,16 +114,19 @@
                         .post("/login", this.form)
                         .then(response => {
                             const data = response.data;
-                            if (data === 0) {
+                            if (!data) {
                                 this.loading = false;
                                 this.alert1 = true;
                                 setTimeout(() => this.alert1 = false, 3000);
-                            } else if (data === 1) {
+                            } else if (data) {
+                                this.$store.commit("user/setType", this.form.type);
+                                this.$store.commit("user/setInfo", data);
+                                // 设置cookie
+                                this.$cookies.set("type", this.form.type);
+                                this.$cookies.set("account", this.form.phone);
+                                this.$cookies.set("password", this.form.password);
                                 this.loading = false;
-                                Message({
-                                    message: "登录成功",
-                                    type: "success"
-                                });
+                                Message({message: "登录成功", type: "success"});
                                 this.$router.push("/admin");
                             }
                         })

@@ -32,9 +32,9 @@ import Component from "vue-class-component";
 export default class Home extends Vue {
   activeIndex = "1";
 
-  handleSelect(key: string, keyPath: Array<string>) {
-    console.log(key, keyPath);
-  }
+  // handleSelect(key: string, keyPath: Array<string>) {
+  //   console.log(key, keyPath);
+  // }
 }
 </script>
 
