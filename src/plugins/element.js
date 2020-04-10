@@ -26,10 +26,14 @@ import {
     Dropdown,
     Avatar,
     Table,
-    TableColumn
+    TableColumn,
+    Popover,
+    Tag
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+Vue.use(Tag);
+Vue.use(Popover);
 Vue.use(TableColumn);
 Vue.use(Table);
 Vue.use(DropdownMenu);

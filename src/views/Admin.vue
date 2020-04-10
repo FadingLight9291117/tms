@@ -3,7 +3,7 @@
         <el-container class="content">
             <navigation :state="isCollapse" class="navigation"/>
             <el-container>
-                <el-header>
+                <el-header class="header">
                     <head-site :state.sync="isCollapse"/>
                 </el-header>
                 <el-main>
@@ -51,7 +51,7 @@
         background: #f0f2f5;
     }
 
-    .el-header {
+    .header {
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
     }
 </style>

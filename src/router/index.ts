@@ -6,9 +6,11 @@ import Error from "@/views/Error.vue";
 import StudentSignUp from "@/views/adminViews/StudentSignUp.vue";
 import Home from "@/views/Home.vue";
 import CoachSignUp from "@/views/adminViews/CoachSignUp.vue";
+import Classes from "@/views/adminViews/Classes.vue";
 
 Vue.use(VueRouter);
 
+// 验证是否登录
 const userAuthenticated = () => {
     const data = {
         type: Vue.$cookies.get("type"),
@@ -23,7 +25,7 @@ const userAuthenticated = () => {
 const routes = [
     {
         path: "/",
-        component: () => import("@/components/signUpComponents/SexChart.vue")
+        component: () => import("@/components/classesComponents/CoachList.vue")
     },
     {
         path: "/home",
@@ -51,6 +53,11 @@ const routes = [
                 path: "coachSignUp",
                 name: "coachSignUp",
                 component: CoachSignUp
+            },
+            {
+                path: "classes",
+                name: "classes",
+                component: Classes
             }
         ]
     },
