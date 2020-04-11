@@ -25,7 +25,7 @@ const userAuthenticated = () => {
 const routes = [
     {
         path: "/",
-        component: () => import("@/components/classesComponents/CoachList.vue")
+        component: () => import("../views/adminViews/Classes.vue")
     },
     {
         path: "/home",

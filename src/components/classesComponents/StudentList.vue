@@ -1,6 +1,6 @@
 <template>
-    <div id="coach-list">
-        <el-button type="primary" round style="width: 100%">添加教练</el-button>
+    <div id="student-list">
+        <el-button type="primary" round style="width: 100%">添加学员</el-button>
         <el-table class="table"
                   :data="tableData"
                   v-loading="isLoading"
@@ -23,7 +23,7 @@
                 </template>
             </el-table-column>
         </el-table>
-        <el-button round type="danger" style="width: 100%" :disabled="selectCoaches.length === 0">删除教练</el-button>
+        <el-button type="danger"  style="width: 100%" round :disabled="selectStudents.length === 0">删除学员</el-button>
     </div>
 </template>
 
@@ -32,7 +32,7 @@
     import {Message} from "element-ui";
 
     @Component
-    export default class CoachList extends Vue {
+    export default class StudentList extends Vue {
         @Prop()
         classId: number | undefined;
 
@@ -50,7 +50,7 @@
                 name: "陈诗琦",
                 picture: ""
             }];
-        selectCoaches = [];
+        selectStudents = [];
 
         handleInfo(index: number, row: any) {
             1
@@ -60,7 +60,7 @@
             if (id != -1) {
                 this.isLoading = true;
                 this.$axios
-                    .get(`/coach/classId/${id}`)
+                    .get(`/student/classId/${id}`)
                     .then(resp => {
                         this.tableData = resp.data;
                         this.isLoading = false;
@@ -79,11 +79,13 @@
             this.fetchTableData(newValue);
         }
 
+        // mounted() {
+        //     this.fetchTableData(this.id as number);
+        // }
+
     }
 </script>
 
 <style scoped>
-    .coach-list {
-        text-align: center;
-    }
+
 </style>

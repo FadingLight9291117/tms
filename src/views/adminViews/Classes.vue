@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-table class="classTable" :data="allClass" v-loading="classTableLoading">
+        <el-table class="classTable class" :data="allClass" v-loading="classTableLoading">
             <el-table-column label="创建时间">
                 <template slot-scope="scope">
                     <i class="el-icon-time"></i>
@@ -35,13 +35,25 @@
                 </template>
             </el-table-column>
         </el-table>
+        <div class="list">
+            <coach-list class-id="-1" class="class coach-list"/>
+            <br>
+            <student-list class-id="-1" class="class student-list"/>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
     import {Vue, Component} from "vue-property-decorator";
+    import StudentList from "@/components/classesComponents/StudentList.vue";
+    import CoachList from "@/components/classesComponents/CoachList.vue";
 
-    @Component
+    @Component({
+        components: {
+            StudentList,
+            CoachList
+        }
+    })
     export default class Classes extends Vue {
         allClass = [
             {
@@ -64,4 +76,12 @@
 </script>
 
 <style scoped>
+    .class {
+        margin-top: 30px;
+    }
+
+    .list {
+        width: 50%;
+        float: left
+    }
 </style>
