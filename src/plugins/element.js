@@ -28,10 +28,24 @@ import {
     Table,
     TableColumn,
     Popover,
-    Tag
+    Tag,
+    Row,
+    Card,
+    Col,
+    Dialog,
+    Steps,
+    Step,
+    Transfer
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+Vue.use(Transfer);
+Vue.use(Step);
+Vue.use(Steps);
+Vue.use(Dialog);
+Vue.use(Col);
+Vue.use(Card);
+Vue.use(Row);
 Vue.use(Tag);
 Vue.use(Popover);
 Vue.use(TableColumn);

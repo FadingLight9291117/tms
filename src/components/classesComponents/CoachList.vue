@@ -1,10 +1,14 @@
 <template>
-    <div id="coach-list">
-        <el-button type="primary" round style="width: 100%">添加教练</el-button>
+    <el-card id="coach-list" :body-style="{padding: 0}">
+        <div slot="header">
+            <span>全部教练</span>
+            <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
+        </div>
         <el-table class="table"
                   :data="tableData"
                   v-loading="isLoading"
-                  stripe>
+                  stripe
+                  border>
             <el-table-column label="照片">
                 <template slot-scope="scope">
                     <span>{{scope.row.picture}}</span>
@@ -16,15 +20,15 @@
                     <span>{{scope.row.name}}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="个人信息">
+            <el-table-column label="选项">
                 <template slot-scope="scope">
-                    <el-button round size="mini" @click="handleInfo(scope.$index, scope.row)">查看
+                    <el-button circle size="mini" @click="handleInfo(scope.$index, scope.row)">查看</el-button>
+                    <el-button circle size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
                     </el-button>
                 </template>
             </el-table-column>
         </el-table>
-        <el-button round type="danger" style="width: 100%" :disabled="selectCoaches.length === 0">删除教练</el-button>
-    </div>
+    </el-card>
 </template>
 
 <script lang="ts">
@@ -41,18 +45,14 @@
         }
 
         isLoading = false;
-        tableData = [
-            {
-                name: "陈诗琦",
-                picture: ""
-            },
-            {
-                name: "陈诗琦",
-                picture: ""
-            }];
+        tableData = [];
         selectCoaches = [];
 
         handleInfo(index: number, row: any) {
+            1
+        }
+
+        handleDelete(index: number, row: any) {
             1
         }
 
@@ -83,7 +83,4 @@
 </script>
 
 <style scoped>
-    .coach-list {
-        text-align: center;
-    }
 </style>

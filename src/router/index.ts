@@ -25,7 +25,7 @@ const userAuthenticated = () => {
 const routes = [
     {
         path: "/",
-        component: () => import("../views/adminViews/Classes.vue")
+        component: () => import("../components/classesComponents/CreateClass.vue")
     },
     {
         path: "/home",
