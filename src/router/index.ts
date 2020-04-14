@@ -7,6 +7,7 @@ import StudentSignUp from "@/views/adminViews/StudentSignUp.vue";
 import Home from "@/views/Home.vue";
 import CoachSignUp from "@/views/adminViews/CoachSignUp.vue";
 import Classes from "@/views/adminViews/Classes.vue";
+import Course from "@/views/adminViews/Course.vue";
 
 Vue.use(VueRouter);
 
@@ -25,7 +26,7 @@ const userAuthenticated = () => {
 const routes = [
     {
         path: "/",
-        component: () => import("../components/classesComponents/CreateClass.vue")
+        component: () => import("../components/courseComponents/CourseTable.vue")
     },
     {
         path: "/home",
@@ -58,6 +59,11 @@ const routes = [
                 path: "classes",
                 name: "classes",
                 component: Classes
+            },
+            {
+                path: "course",
+                name: "course",
+                component: Course
             }
         ]
     },

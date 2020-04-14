@@ -25,7 +25,7 @@
                 <span slot="title">教务管理</span>
             </template>
             <el-menu-item index="classes">分班</el-menu-item>
-            <el-menu-item index="3-2">排课</el-menu-item>
+            <el-menu-item index="course">排课</el-menu-item>
         </el-submenu>
         <el-menu-item index="4">
             <i class="el-icon-document"></i>

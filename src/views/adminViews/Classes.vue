@@ -3,7 +3,7 @@
         <el-row>
             <el-col :span="24">
                 <el-card :body-style="{padding: 0}">
-                    <el-table :data="allClass" v-loading="classTableLoading">
+                    <el-table :data="allClass" v-loading="classTableLoading" max-height="300">
                         <el-table-column label="创建时间">
                             <template slot-scope="scope">
                                 <i class="el-icon-time"></i>
@@ -53,7 +53,7 @@
                 <el-row>
                     <el-button type="primary" class="button1 button" @click="createClass()"><span class="button-words">创建班级</span>
                     </el-button>
-                    <create-class :show.sync="show"/>
+                    <create-class v-if="show" :show.sync="show"/>
                 </el-row>
                 <el-row>
                     <el-button type="danger"
@@ -120,7 +120,7 @@
                     this.fetchData();
                     clearInterval(a);
                 }
-            },1000)
+            }, 1000)
         }
 
         // 删除选定班级

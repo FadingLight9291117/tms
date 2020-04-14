@@ -35,7 +35,8 @@ import {
     Dialog,
     Steps,
     Step,
-    Transfer
+    Transfer,
+
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
