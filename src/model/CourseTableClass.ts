@@ -17,37 +17,37 @@ export default class CourseColumn {
             case "one":
                 this.one = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
             case "two":
                 this.two = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
             case "three":
                 this.three = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
             case  "four":
                 this.four = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
             case "five":
                 this.five = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
             case "six":
                 this.six = {
                     id: data.id as number,
-                    name: data.name as string
+                    className: data.className as string
                 };
                 break;
         }
