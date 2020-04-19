@@ -36,8 +36,8 @@
                 <i class="el-icon-setting"></i>
                 <span slot="title">信息管理</span>
             </template>
-            <el-menu-item index="5-1">学员信息</el-menu-item>
-            <el-menu-item index="5-2">教练信息</el-menu-item>
+            <el-menu-item index="studentInfo">学员信息</el-menu-item>
+            <el-menu-item index="coachInfo">教练信息</el-menu-item>
         </el-submenu>
         <el-menu-item index="6">
             <i class="el-icon-edit"></i>

@@ -8,25 +8,32 @@ import Home from "@/views/Home.vue";
 import CoachSignUp from "@/views/adminViews/CoachSignUp.vue";
 import Classes from "@/views/adminViews/Classes.vue";
 import Course from "@/views/adminViews/Course.vue";
+import StudentInfo from "@/views/adminViews/StudentInfo.vue";
+import CoachInfo from "@/views/adminViews/CoachInfo.vue";
+import {Message} from "element-ui";
 
 Vue.use(VueRouter);
 
 // 验证是否登录
-const userAuthenticated = () => {
+const userAuthenticated = (next: Function) => {
     const data = {
         type: Vue.$cookies.get("type"),
         phone: Vue.$cookies.get("account"),
         password: Vue.$cookies.get("password")
     };
-
-    return !(data.type == null || data.phone == null || data.password == null);
-
+    if (data.type != null && data.phone != null && data.password != null)
+        Vue.$axios
+            .post("/login/auth", data)
+            .then(resp => resp.data ? next() : next("/login"))
+            .catch(() => Message.error("网络连接错误"));
+    else
+        next("/login")
 };
 
 const routes = [
     {
         path: "/",
-        component: () => import("../components/courseComponents/CourseTable.vue")
+        component: () => import("../views/adminViews/StudentInfo.vue")
     },
     {
         path: "/home",
@@ -38,11 +45,7 @@ const routes = [
         name: "admin",
         component: Admin,
         beforeEnter(to: Route, from: Route, next: any) {
-            if (userAuthenticated()) {
-                next();
-            } else {
-                next("/login");
-            }
+            userAuthenticated(next);
         },
         children: [
             {
@@ -64,6 +67,16 @@ const routes = [
                 path: "course",
                 name: "course",
                 component: Course
+            },
+            {
+                path: "studentInfo",
+                name: "studentInfo",
+                component: StudentInfo
+            },
+            {
+                path: "coachInfo",
+                name: "coachInfo",
+                component: CoachInfo
             }
         ]
     },

@@ -1,18 +1,28 @@
 // course table 中数据的数据类型
 export default class CourseColumn {
     week: string;
-    one: object | undefined;
-    two: object | undefined;
-    three: object | undefined;
-    four: object | undefined;
-    five: object | undefined;
-    six: object | undefined;
+    one: any;
+    two: any;
+    three: any;
+    four: any;
+    five: any;
+    six: any;
 
     constructor(week: string) {
         this.week = week;
+        this.setOtherParamsNull();
     }
 
-    setOtherPrams(data: any) {
+    setOtherParamsNull() {
+        this.two = null;
+        this.one = null;
+        this.three = null;
+        this.four = null;
+        this.five = null;
+        this.six = null;
+    }
+
+    setOtherParams(data: any) {
         switch (data.time as string) {
             case "one":
                 this.one = {

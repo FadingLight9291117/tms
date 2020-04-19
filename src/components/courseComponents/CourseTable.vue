@@ -1,22 +1,22 @@
 <template>
-    <div>
+    <div id="course-table">
         <el-table
                 :data="data"
                 width="100%"
-                :isLoading="loading"
+                v-loading="tableIssLoading"
                 @cell-click="handleClick">
             <el-table-column prop="week" label="星期"></el-table-column>
             <el-table-column label="上午">
-                <el-table-column prop="one.name" label="8:00-9:50"></el-table-column>
-                <el-table-column prop="two.name" label="10:00-11:50"></el-table-column>
+                <el-table-column prop="one.className" label="8:00-9:50"></el-table-column>
+                <el-table-column prop="two.className" label="10:00-11:50"></el-table-column>
             </el-table-column>
             <el-table-column label="下午">
-                <el-table-column prop="three.name" label="12:30-2:20"></el-table-column>
-                <el-table-column prop="four.name" label="2:30-4:20"></el-table-column>
-                <el-table-column prop="five.name" label="4:30-6:20"></el-table-column>
+                <el-table-column prop="three.className" label="12:30-2:20"></el-table-column>
+                <el-table-column prop="four.className" label="2:30-4:20"></el-table-column>
+                <el-table-column prop="five.className" label="4:30-6:20"></el-table-column>
             </el-table-column>
             <el-table-column label="晚上">
-                <el-table-column prop="six.name" label="7:00-8:50"></el-table-column>
+                <el-table-column prop="six.className" label="7:00-8:50"></el-table-column>
             </el-table-column>
         </el-table>
         <el-dialog title="操作"
@@ -28,19 +28,43 @@
             </el-row>
             <br>
             <el-row>
+                <el-popover
+                        :disabled="disablePopover"
+                        placement="bottom"
+                        trigger="click">
+                    <el-table :data="classes" @row-click="createOrUpdateCourse">
+                        <el-table-column label="班级名" prop="name">
+                        </el-table-column>
+                    </el-table>
+                    <el-button
+                            type="primary"
+                            :disabled="create"
+                            @click="fetchClassData"
+                            slot="reference">
+                        添加
+                    </el-button>
+                </el-popover>
+                <el-popover
+                        style="margin-left: 10px"
+                        :disabled="disablePopover"
+                        placement="bottom"
+                        trigger="click">
+                    <el-table :data="classes" @row-click="createOrUpdateCourse">
+                        <el-table-column label="班级名" prop="name">
+                        </el-table-column>
+                    </el-table>
+
+                    <el-button :disabled="update"
+                               @click="fetchClassData"
+                               slot="reference">
+                        修改
+                    </el-button>
+                </el-popover>
                 <el-button
-                        type="primary"
-                        :disabled="create"
-                        @click="createCourse">
-                    添加
-                </el-button>
-                <el-button :disabled="update"
-                           @click="updateCourse">
-                    修改
-                </el-button>
-                <el-button type="danger"
-                           :disabled="remove"
-                           @click="removeCourse">
+                        style="margin-left: 10px"
+                        type="danger"
+                        :disabled="remove"
+                        @click="removeCourse">
                     删除
                 </el-button>
             </el-row>
@@ -57,6 +81,7 @@
     @Component
     export default class CourseTable extends Vue {
         @Prop() loading: boolean | undefined;
+        tableIssLoading = false;
         // table 数据源
         data: Array<CourseColumn> = [
             // {
@@ -105,20 +130,45 @@
         remove = true;
         // 点击的单元格信息
         week = "";
+        time = "";
         course = "";
         // 点击单元格的id
         courseId = -1;
 
-        createCourse() {
-            1
-        }
+        //popover可见性
+        disablePopover = true;
 
-        updateCourse() {
-            1
+        // 添加或修改班级班级，若存在班级先删除
+        createOrUpdateCourse(row: any) {
+            if (this.courseId !== -1) {
+                this.removeCourse();
+            }
+            const course = {
+                classId: row.id,
+                week: this.week,
+                time: this.time
+            }
+            this.$axios
+                .post("/course/add", course)
+                .then(resp => resp.data === 1 ? Message.success("添加成功") : Message.error("网络连接错误"))
+                .catch(() => Message.error("网络连接错误"))
+                .finally(() => {
+                    this.disablePopover = true;
+                    this.openDialog = false;
+                    this.fetchCourseData();
+                })
         }
 
         removeCourse() {
-            1
+            this.$axios
+                .delete(`/course/rm/${this.courseId}`)
+                .then(resp => resp.data === 1 ? Message.success("删除成功") : Message.error("网络连接错误"))
+                .catch(() => Message.error("网络连接错误"))
+                .finally(() => {
+                    this.disablePopover = true;
+                    this.openDialog = false;
+                    this.fetchCourseData();
+                })
         }
 
         handleClick(row: any, column: any) {
@@ -130,6 +180,8 @@
                 this.openDialog = true
                 // 周数
                 this.week = row.week;
+                // 列名
+                this.time = colName;
                 // 第几次课
                 this.course = Reflect.get(this.courseList, colName);
                 // cell中课程id
@@ -144,6 +196,7 @@
                 }
                 // 不存在课程的cell
                 else {
+                    this.courseId = -1;
                     this.create = false;
                     this.update = true;
                     this.remove = true;
@@ -154,8 +207,9 @@
         classes: Array<any> = [];
 
         fetchClassData() {
+            this.disablePopover = false;
             this.$axios
-                .get("/class/allClass")
+                .get("/classInfo/all")
                 .then(resp => {
                     const data: Array<any> = resp.data;
                     this.classes = data.map((e: any) => {
@@ -169,37 +223,41 @@
         }
 
         fetchCourseData() {
+            this.tableIssLoading = true;
             this.$axios
                 .get("/course/allAndClassName")
                 .then(resp => {
                     const data = resp.data;
+                    // 先清空数据
+                    this.data.forEach(e => e.setOtherParamsNull());
                     data.forEach((e: any) => {
                         switch (e.week) {
                             case "周一":
-                                this.data[0].setOtherPrams(e);
+                                this.data[0].setOtherParams(e);
                                 break;
                             case "周二":
-                                this.data[1].setOtherPrams(e);
+                                this.data[1].setOtherParams(e);
                                 break;
                             case "周三":
-                                this.data[2].setOtherPrams(e);
+                                this.data[2].setOtherParams(e);
                                 break;
                             case "周四":
-                                this.data[3].setOtherPrams(e);
+                                this.data[3].setOtherParams(e);
                                 break;
                             case "周五":
-                                this.data[4].setOtherPrams(e);
+                                this.data[4].setOtherParams(e);
                                 break;
                             case "周六":
-                                this.data[5].setOtherPrams(e);
+                                this.data[5].setOtherParams(e);
                                 break;
                             case "周日":
-                                this.data[6].setOtherPrams(e);
+                                this.data[6].setOtherParams(e);
                                 break;
                         }
                     });
                 })
-                .catch(() => Message.error("网络连接错误"));
+                .catch(() => Message.error("网络连接错误"))
+                .finally(() => this.tableIssLoading = false);
         }
 
         mounted() {
@@ -210,8 +268,7 @@
         @Watch("loading")
         isLoading(value: boolean) {
             if (value) {
-                // 使整个表格重新加载
-                // this.fetchData();
+                this.fetchCourseData();
                 this.$emit("update:loading", false);
             }
         }
@@ -219,5 +276,7 @@
 </script>
 
 <style scoped>
-
+    #course-table {
+        text-align: center;
+    }
 </style>
