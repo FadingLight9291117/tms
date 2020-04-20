@@ -1,16 +1,19 @@
 import Vue from "vue";
 import VueRouter, {Route} from "vue-router";
-import Login from "@/views/Login.vue";
-import Admin from "@/views/Admin.vue";
+import Login from "@/views/admin/Login.vue";
+import Admin from "@/views/admin/Admin.vue";
 import Error from "@/views/Error.vue";
-import StudentSignUp from "@/views/adminViews/StudentSignUp.vue";
-import Home from "@/views/Home.vue";
-import CoachSignUp from "@/views/adminViews/CoachSignUp.vue";
-import Classes from "@/views/adminViews/Classes.vue";
-import Course from "@/views/adminViews/Course.vue";
-import StudentInfo from "@/views/adminViews/StudentInfo.vue";
-import CoachInfo from "@/views/adminViews/CoachInfo.vue";
+import StudentSignUp from "@/views/admin/adminViews/StudentSignUp.vue";
+import Home from "@/views/admin/Home.vue";
+import CoachSignUp from "@/views/admin/adminViews/CoachSignUp.vue";
+import Classes from "@/views/admin/adminViews/Classes.vue";
+import Course from "@/views/admin/adminViews/Course.vue";
+import StudentInfo from "@/views/admin/adminViews/StudentInfo.vue";
+import CoachInfo from "@/views/admin/adminViews/CoachInfo.vue";
 import {Message} from "element-ui";
+import News from "@/views/admin/adminViews/News.vue";
+import Editor from "@/components/admin/newsComponents/Editor.vue";
+import OnlineWork from "@/views/admin/adminViews/OnlineWork.vue";
 
 Vue.use(VueRouter);
 
@@ -33,7 +36,7 @@ const userAuthenticated = (next: Function) => {
 const routes = [
     {
         path: "/",
-        component: () => import("../views/adminViews/StudentInfo.vue")
+        component: () => import("../views/admin/adminViews/StudentInfo.vue")
     },
     {
         path: "/home",
@@ -77,6 +80,21 @@ const routes = [
                 path: "coachInfo",
                 name: "coachInfo",
                 component: CoachInfo
+            },
+            {
+                path: "news",
+                name: "news",
+                component: News
+            },
+            {
+                path: "editor",
+                name: "editor",
+                component: Editor
+            },
+            {
+                path: "onlineWork",
+                name: "onlineWork",
+                component: OnlineWork
             }
         ]
     },

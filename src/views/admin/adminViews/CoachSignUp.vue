@@ -7,7 +7,7 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
-    import CoachTable from "@/components/signUpComponents/CoachTable.vue";
+    import CoachTable from "@/components/admin/signUpComponents/CoachTable.vue";
 
 
     @Component({

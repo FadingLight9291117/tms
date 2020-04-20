@@ -146,7 +146,7 @@
 <style scoped>
     #login {
         height: 100%;
-        background: url("../assets/bg1.jpg") no-repeat;
+        background: url("../../assets/bg1.jpg") no-repeat;
     }
 
     #form {

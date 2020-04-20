@@ -6,7 +6,8 @@
     import {Vue, Component} from "vue-property-decorator";
 
     @Component
-    export default class CoachInfo extends Vue {
+    export default class OnlineWork extends Vue {
+
     }
 </script>
 

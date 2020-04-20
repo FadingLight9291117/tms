@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
     import {Vue, Component} from "vue-property-decorator";
-    import CourseTable from "@/components/courseComponents/CourseTable.vue";
+    import CourseTable from "@/components/admin/courseComponents/CourseTable.vue";
     import {Message} from "element-ui";
 
     @Component({

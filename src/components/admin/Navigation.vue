@@ -27,7 +27,7 @@
             <el-menu-item index="classes">分班</el-menu-item>
             <el-menu-item index="course">排课</el-menu-item>
         </el-submenu>
-        <el-menu-item index="4">
+        <el-menu-item index="onlineWork">
             <i class="el-icon-document"></i>
             <span slot="title">在线教学</span>
         </el-menu-item>
@@ -39,7 +39,7 @@
             <el-menu-item index="studentInfo">学员信息</el-menu-item>
             <el-menu-item index="coachInfo">教练信息</el-menu-item>
         </el-submenu>
-        <el-menu-item index="6">
+        <el-menu-item index="news">
             <i class="el-icon-edit"></i>
             <span slot="title">新闻发布</span>
         </el-menu-item>

@@ -70,10 +70,10 @@
 
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
-    import StudentList from "@/components/classesComponents/StudentList.vue";
-    import CoachList from "@/components/classesComponents/CoachList.vue";
+    import StudentList from "@/components/admin/classesComponents/StudentList.vue";
+    import CoachList from "@/components/admin/classesComponents/CoachList.vue";
     import {Message} from "element-ui";
-    import CreateClass from "@/components/classesComponents/CreateClass.vue";
+    import CreateClass from "@/components/admin/classesComponents/CreateClass.vue";
 
     @Component({
         components: {
