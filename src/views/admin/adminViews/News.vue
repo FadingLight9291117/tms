@@ -24,9 +24,17 @@
                         </el-table-column>
                         <el-table-column label="选项">
                             <template slot-scope="scope">
-                                <el-button type="danger" size="mini"
-                                           @click="remove(scope.$index, scope.row)">删除
-                                </el-button>
+                                <el-popconfirm
+                                        title="确认要删除吗?"
+                                        confirm-button-text="确认"
+                                        cancel-button-text="取消"
+                                        @onConfirm="remove(scope.$index, scope.row)"
+                                        icon="el-icon-info"
+                                        icon-color="red">
+
+                                    <el-button slot="reference" type="danger" size="mini">删除
+                                    </el-button>
+                                </el-popconfirm>
                             </template>
                         </el-table-column>
                     </el-table>

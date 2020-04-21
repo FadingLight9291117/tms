@@ -14,6 +14,7 @@ import {Message} from "element-ui";
 import News from "@/views/admin/adminViews/News.vue";
 import Editor from "@/components/admin/newsComponents/Editor.vue";
 import OnlineWork from "@/views/admin/adminViews/OnlineWork.vue";
+import AddWork from "@/components/admin/onlineWorkComponents/AddWork.vue";
 
 Vue.use(VueRouter);
 
@@ -36,7 +37,7 @@ const userAuthenticated = (next: Function) => {
 const routes = [
     {
         path: "/",
-        component: () => import("../views/admin/adminViews/StudentInfo.vue")
+        component: AddWork
     },
     {
         path: "/home",
@@ -95,6 +96,11 @@ const routes = [
                 path: "onlineWork",
                 name: "onlineWork",
                 component: OnlineWork
+            },
+            {
+                path: "addWork",
+                name: "addWork",
+                component: AddWork
             }
         ]
     },
