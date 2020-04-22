@@ -4,7 +4,7 @@ import Login from "@/views/admin/Login.vue";
 import Admin from "@/views/admin/Admin.vue";
 import Error from "@/views/Error.vue";
 import StudentSignUp from "@/views/admin/adminViews/StudentSignUp.vue";
-import Home from "@/views/admin/Home.vue";
+import Home from "@/views/custom/Home.vue";
 import CoachSignUp from "@/views/admin/adminViews/CoachSignUp.vue";
 import Classes from "@/views/admin/adminViews/Classes.vue";
 import Course from "@/views/admin/adminViews/Course.vue";
@@ -14,7 +14,8 @@ import {Message} from "element-ui";
 import News from "@/views/admin/adminViews/News.vue";
 import Editor from "@/components/admin/newsComponents/Editor.vue";
 import OnlineWork from "@/views/admin/adminViews/OnlineWork.vue";
-import AddWork from "@/components/admin/onlineWorkComponents/AddWork.vue";
+import AddVideo from "@/components/admin/onlineWorkComponents/AddVideo.vue";
+import AllVideo from "@/components/admin/onlineWorkComponents/AllVideo.vue";
 
 Vue.use(VueRouter);
 
@@ -29,7 +30,10 @@ const userAuthenticated = (next: Function) => {
         Vue.$axios
             .post("/login/auth", data)
             .then(resp => resp.data ? next() : next("/login"))
-            .catch(() => Message.error("网络连接错误"));
+            .catch(() => {
+                Message.error("网络连接错误")
+                next("/login")
+            });
     else
         next("/login")
 };
@@ -37,7 +41,7 @@ const userAuthenticated = (next: Function) => {
 const routes = [
     {
         path: "/",
-        component: AddWork
+        component: Home
     },
     {
         path: "/home",
@@ -98,9 +102,14 @@ const routes = [
                 component: OnlineWork
             },
             {
-                path: "addWork",
-                name: "addWork",
-                component: AddWork
+                path: "addVideo",
+                name: "addVideo",
+                component: AddVideo
+            },
+            {
+                path: "allVideo",
+                name: "allVideo",
+                component: AllVideo
             }
         ]
     },

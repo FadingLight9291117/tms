@@ -36,10 +36,12 @@ import {
     Steps,
     Step,
     Transfer,
-    Popconfirm
+    Popconfirm,
+    Upload
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+Vue.use(Upload);
 Vue.use(Popconfirm);
 Vue.use(Transfer);
 Vue.use(Step);
