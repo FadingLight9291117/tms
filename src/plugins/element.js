@@ -37,10 +37,14 @@ import {
     Step,
     Transfer,
     Popconfirm,
-    Upload
+    Upload,
+    Divider,
+    Radio,
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+Vue.use(Radio)
+Vue.use(Divider);
 Vue.use(Upload);
 Vue.use(Popconfirm);
 Vue.use(Transfer);

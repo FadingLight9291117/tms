@@ -16,6 +16,7 @@ import Editor from "@/components/admin/newsComponents/Editor.vue";
 import OnlineWork from "@/views/admin/adminViews/OnlineWork.vue";
 import AddVideo from "@/components/admin/onlineWorkComponents/AddVideo.vue";
 import AllVideo from "@/components/admin/onlineWorkComponents/AllVideo.vue";
+import SignUp from "@/views/custom/SignUp.vue"
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
         path: "/home",
         name: "home",
         component: Home
+    },
+    {
+        path: "/signUp",
+        name: "signUp",
+        component: SignUp
     },
     {
         path: "/admin",

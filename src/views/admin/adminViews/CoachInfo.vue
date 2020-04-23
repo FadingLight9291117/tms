@@ -16,7 +16,7 @@
                 <el-table-column prop="date" label="日期"></el-table-column>
                 <el-table-column label="照片">
                     <template slot-scope="scope">
-                        <img v-if="scope.row.picture === ''" width="50" height="50" src="../../../assets/head.jpeg" alt=""/>
+                        <img width="50" height="50" :src="scope.row.picture" alt="加载失败">
                     </template>
                 </el-table-column>
                 <el-table-column prop="name" label="姓名"></el-table-column>
@@ -42,7 +42,7 @@
             >
                 <el-form-item v-for="(value, key) in tableData[dialogIndex]" :key="key" :label="key">
                     <span v-if="key !== 'picture'" style="color: black">{{value}}</span>
-                    <img v-else-if="value === ''" width="100" height="100" src="../../../assets/head.jpeg" alt=""/>
+                    <img v-else width="100" height="100" :src="value" alt="加载失败">
                 </el-form-item>
             </el-form>
             <span slot="footer">
