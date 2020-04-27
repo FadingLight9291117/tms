@@ -1,10 +1,10 @@
 import Vue from "vue";
 import VueRouter, {Route} from "vue-router";
-import Login from "@/views/admin/Login.vue";
+import AdminLogin from "@/views/admin/AdminLogin.vue";
 import Admin from "@/views/admin/Admin.vue";
 import Error from "@/views/Error.vue";
 import StudentSignUp from "@/views/admin/adminViews/StudentSignUp.vue";
-import Home from "@/views/custom/Home.vue";
+import index from "@/views/custom/index.vue";
 import CoachSignUp from "@/views/admin/adminViews/CoachSignUp.vue";
 import Classes from "@/views/admin/adminViews/Classes.vue";
 import Course from "@/views/admin/adminViews/Course.vue";
@@ -17,6 +17,10 @@ import OnlineWork from "@/views/admin/adminViews/OnlineWork.vue";
 import AddVideo from "@/components/admin/onlineWorkComponents/AddVideo.vue";
 import AllVideo from "@/components/admin/onlineWorkComponents/AllVideo.vue";
 import SignUp from "@/views/custom/SignUp.vue"
+import Login from "@/views/custom/Login.vue";
+import Home from "@/views/custom/Home.vue";
+import Index from "@/views/custom/Index.vue";
+
 
 Vue.use(VueRouter);
 
@@ -30,29 +34,39 @@ const userAuthenticated = (next: Function) => {
     if (data.type != null && data.phone != null && data.password != null)
         Vue.$axios
             .post("/login/auth", data)
-            .then(resp => resp.data ? next() : next("/login"))
+            .then(resp => resp.data ? next() : next("/adminLogin"))
             .catch(() => {
                 Message.error("网络连接错误")
-                next("/login")
+                next("/adminLogin")
             });
     else
-        next("/login")
+        next("/adminLogin")
 };
 
 const routes = [
     {
         path: "/",
-        component: Home
+        component: Index
     },
     {
-        path: "/home",
-        name: "home",
-        component: Home
+        path: "/index",
+        name: "index",
+        component: Index
     },
     {
         path: "/signUp",
         name: "signUp",
         component: SignUp
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: Login
+    },
+    {
+        path: "/home",
+        name: "home",
+        component: Home
     },
     {
         path: "/admin",
@@ -120,9 +134,9 @@ const routes = [
         ]
     },
     {
-        path: "/login",
-        name: "login",
-        component: Login
+        path: "/adminLogin",
+        name: "adminLogin",
+        component: AdminLogin
     },
     {
         path: "*",

@@ -61,7 +61,7 @@
             this.$cookies.remove("type");
             this.$cookies.remove("account");
             this.$cookies.remove("password");
-            this.$router.replace("/login");
+            this.$router.replace("/adminLogin");
             Message({type: "success", message: "您已退出登录！"});
         }
 

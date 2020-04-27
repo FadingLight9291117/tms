@@ -9,10 +9,10 @@
                     text-color="#fff"
                     active-text-color="#ffd04b"
             >
-                <el-menu-item index="home">首页</el-menu-item>
+                <el-menu-item index="index">首页</el-menu-item>
                 <el-menu-item style="float: right"><span class="sign-up" @click="handleSignUp">报名</span>
                 </el-menu-item>
-                <el-menu-item style="float: right">登录</el-menu-item>
+                <el-menu-item style="float: right" @click="handleLogin">登录</el-menu-item>
             </el-menu>
         </header>
         <main>
@@ -71,6 +71,10 @@
     @Component
     export default class SignUp extends Vue {
 
+        handleLogin() {
+            this.$router.push({name: "login"})
+        }
+
         handleSelect(key: string) {
             this.$router.push({name: key})
         }
@@ -112,6 +116,7 @@
                         date: date
                     }
                 })
+                .then(resp => Message.success("注册成功"))
                 .catch(() => Message.error("网络连接错误"))
         }
     }

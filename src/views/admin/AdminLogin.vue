@@ -74,7 +74,7 @@
     import {Message} from "element-ui";
 
     @Component
-    export default class Login extends Vue {
+    export default class AdminLogin extends Vue {
         // 加载动画
         loading = false;
         // 登录错误提示alert
