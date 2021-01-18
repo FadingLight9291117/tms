@@ -1,0 +1,66 @@
+### 全部完成
+
+### 2020.3.29 成功
+
+POST http://localhost:8080/signUp/admin
+Content-Type: application/json
+
+{
+  "name": "车亮召",
+  "phone": "13007125862",
+  "password": "m4a1421"
+}
+
+### 2020.3.29 成功
+
+POST http://localhost:8080/signUp/coach
+Content-Type: application/json
+
+{
+  "phone": "13007125862",
+  "password": "123456",
+  "name": "车亮召",
+  "sex": 0,
+  "birthday": "1998-11-17",
+  "picture": "",
+  "dan": 1,
+  "affirm": 0,
+  "intro": ""
+}
+
+### 2020.3.29 成功
+
+POST http://localhost:8080/signUp/student
+Content-Type: application/json
+
+{
+  "student": {
+    "phone": "13007125862",
+    "password": 123456,
+    "name": "车亮召",
+    "sex": "男",
+    "birthday": "1998-11-17",
+    "picture": "",
+    "level": "1",
+    "dan": 0,
+    "date": "2020-3-15",
+    "affirm": 0
+  },
+  "parent": {
+    "name": "父亲",
+    "phone": "13007125862",
+    "relation": "父亲"
+  }
+}
+
+### 2020.3.30
+
+POST http://localhost:8080/signUp/affirm
+Content-Type: application/json
+
+{
+  "students": [1, 2, 3, 4],
+  "coaches": [1,2, 3, 4]
+}
+
+###

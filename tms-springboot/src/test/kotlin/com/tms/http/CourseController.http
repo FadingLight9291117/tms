@@ -1,0 +1,44 @@
+### 全部成功
+
+### 2020.4.1 成功
+POST http://localhost:8080/course/add
+Content-Type: application/json
+
+{
+  "classId": 4,
+  "dates": [
+    "2020-3-1",
+    "2020-3-13",
+    "2020-3-14"
+  ],
+  "time": "下午5：00——6：00"
+}
+
+### 2020.4.1 成功
+DELETE http://localhost:8080/course/rm
+Content-Type: application/json
+
+[
+  1,
+  2,
+  3
+]
+
+### 2020.4.1 成功
+POST http://localhost:8080/course/disable
+Content-Type: application/json
+
+[
+  4,
+  5
+]
+
+### 2020.4.1 成功
+POST http://localhost:8080/course/enable
+Content-Type: application/json
+
+[
+  4
+]
+
+###

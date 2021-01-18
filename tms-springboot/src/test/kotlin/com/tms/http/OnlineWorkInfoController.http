@@ -1,0 +1,27 @@
+### 全部成功
+
+### 2020.4.4 完成
+GET http://localhost:8080/onlineWorkInfo/all
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/onlineWorkInfo/courseWork/1
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/onlineWorkInfo/onlineWorkId/1
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/onlineWorkInfo/allStudentWorks/1
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET  http://localhost:8080/onlineWorkInfo/allStudentWorks/1
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/onlineWorkInfo/comments/1
+Content-Type: application/json
+
+###

@@ -1,0 +1,23 @@
+### 全部成功
+
+### 2020.4.4 成功
+GET http://localhost:8080/classInfo/all
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/classInfo/coachesByClassId/1
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/classInfo/studentsByClassId/4
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET  http://localhost:8080/classInfo/coursesByClassId/4
+Content-Type: application/json
+
+### 2020.4.4 成功
+GET http://localhost:8080/classInfo/classId/5
+Content-Type: application/json
+
+###

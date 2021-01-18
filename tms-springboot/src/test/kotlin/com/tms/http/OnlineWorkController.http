@@ -1,0 +1,35 @@
+###
+
+### 2020.4.2 成功
+POST http://localhost:8080/onlineWork/publish
+Content-Type: application/json
+
+{
+  "classId": 8,
+  "video": "",
+  "date": "2020-4-2"
+}
+
+### 2020.4.2 成功
+POST http://localhost:8080/onlineWork/submit
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "onlineWorkId": 1,
+  "video": "",
+  "date": "2020-4-2"
+}
+
+### 2020.4.2 测试
+POST http://localhost:8080/onlineWork/comment
+Content-Type: application/json
+
+{
+  "studentWorkId": 1,
+  "coachId": 1,
+  "content": "",
+  "date": "2020-4-2"
+}
+
+###

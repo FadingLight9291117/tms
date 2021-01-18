@@ -1,0 +1,58 @@
+### 全部成功
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/all
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/classId/4
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/studentId/3
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/candidates
+Content-Type: application/json
+
+### 2020.4.3 成功
+POST http://localhost:8080/student/updateStudent
+Content-Type: application/json
+
+{
+  "id": 3,
+  "phone": 13007125862,
+  "password": "123456",
+  "name": "陈诗琦",
+  "sex": "女",
+  "birthday": "1998-11-17",
+  "picture": "",
+  "level": "8",
+  "dan": "0",
+  "date": "2020-03-15",
+  "affirm": 1
+}
+
+### 2020.4.3 成功
+DELETE http://localhost:8080/student/rmStudent/1
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/parents
+Content-Type: application/json
+
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/parentId/3
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/student/childId/1
+Content-Type: application/json
+
+### 2020.4.3 成功
+DELETE http://localhost:8080/student/rmParent/1
+Content-Type: application/json
+
+###

@@ -1,0 +1,40 @@
+### 全部成功
+
+### 2020.4.3 成功
+GET http://localhost:8080/coach/all
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/coach/coachId/1
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET  http://localhost:8080/coach/classId/1
+Content-Type: application/json
+
+### 2020.4.3 成功
+POST http://localhost:8080/coach/update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "phone": 13007125862,
+  "password": "123456",
+  "name": "车亮召",
+  "sex": "男",
+  "birthday": "1998-11-17",
+  "picture": "",
+  "dan": "3",
+  "intro": "",
+  "affirm": 0
+}
+
+### 2020.4.3 成功
+DELETE http://localhost:8080/coach/rm/2
+Content-Type: application/json
+
+### 2020.4.3 成功
+GET http://localhost:8080/coach/candidates
+Content-Type: application/json
+
+###
